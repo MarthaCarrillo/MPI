@@ -92,3 +92,10 @@ R/ La función MPI_Sendrecv() tiene como beneficios para el programador, el no t
 
 ##Actividad 4 - Ejercicio propuesto comunicación colectiva
 
+####Modifique el código del archivo mpiExample4.c de modo que
+#####Se reciba la suma total en el nodo cero 
+#####Se reciba el producto de multiplicar todas las sumas parciales en el nodo de mayor rango de el comunicador MPI_COMM_WORLD
+####Archivo: mpicolectiva1.c
+
+####Modifique el código del archivo mpiExample7.c de modo que se envie a todos los nodos en el comunicador MPI_COMM_WORLD la #####suma calculada en el nodo raiz de este comunicador
+####Archivo: mpicolectiva2.c
