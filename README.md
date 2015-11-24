@@ -19,24 +19,43 @@ https://drive.google.com/a/correounivalle.edu.co/file/d/0B7n65I8SStKXMHU5NHA3VWJ
 Ejecución de la página 234:
 
 MPI_Comm_rank (comm, &my_rank);
+
 if (my_rank == 0) {
+
 	MPI_Recv (recvbuf, count, MPI_INT, 1, tag, comm, &status);
+	
 	MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+	
 }
-else if (my_rank == 1) {
+
+else if (my_rank == 1) { 
+
 	MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
- MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+	
+ 	MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+ 	
 }
+
 
 ### 1. Cuando la ejecución anterior no causa un deadlock? ( p 235)
 R/ La ejecución anterior no causa un cuando recvbuf y sendbuf son diferentes en los dos procesos.
+
 MPI_Comm_rank (comm, &my_rank);
+
 if (my_rank == 0) {
+
 	MPI_Recv (recvbuf1, count, MPI_INT, 1, tag, comm, &status);
+	
 	MPI_Send (sendbuf1, count, MPI_INT, 1, tag, comm);
+	
 }
+
 else if (my_rank == 1) {
+
 	MPI_Recv (recvbuf2, count, MPI_INT, 0, tag, comm, &status);
- MPI_Send (sendbuf2, count, MPI_INT, 1, tag, comm);
+	
+ 	MPI_Send (sendbuf2, count, MPI_INT, 1, tag, comm);
+ 	
 }
+
 
