@@ -120,7 +120,6 @@ if (my_rank == 0) {
 else if (my_rank == 1) { 
 
 	MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
-
 	MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
 	
 }
