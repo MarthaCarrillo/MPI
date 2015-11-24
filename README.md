@@ -84,3 +84,8 @@ else if (my_rank == 1) {
 R/ La función MPI_Sendrecv() tiene como beneficios para el programador, el no tener que preocuparse por el orden de las operaciones de envío y recepción. El sistema de ejecución de MPI garantiza que se está libre de deadlock, incluso para el caso en el que no se utiliza buffers internos del sistema.
 
 ### 4. Escriba un programa para validar el beneficio proporcionado por la función MPI_Sendrecv()?
+
+##Actividad 3 - Ejercicios Deadlocks
+
+##Actividad 4 - Ejercicio propuesto comunicación colectiva
+
