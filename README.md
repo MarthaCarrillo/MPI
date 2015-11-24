@@ -86,7 +86,7 @@ R/ La función MPI_Sendrecv() tiene como beneficios para el programador, el no t
 ### 4. Escriba un programa para validar el beneficio proporcionado por la función MPI_Sendrecv()?
 
 ##Actividad 3 - Ejercicios Deadlocks
-Escribir programas en MPI que validen la aparición de un deadlock de acuerdo a los segmentos de código en las diapositiva 41, 42.
+#####Escribir programas en MPI que validen la aparición de un deadlock de acuerdo a los segmentos de código en las diapositiva 41, 42.
 
 ####Segmento de código diapositiva 41
 MPI_Comm_rank (comm, &my_rank);
@@ -124,6 +124,8 @@ else if (my_rank == 1) {
 	MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
 	
 }
+
+#####Modifique el segmento de código de la diapositiva 42 de modo que se utilice la función MPI_Sendrecv(). Validar que el programa no cae en un deadlock
 
 ##Actividad 4 - Ejercicio propuesto comunicación colectiva
 
