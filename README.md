@@ -58,4 +58,25 @@ else if (my_rank == 1) {
  	
 }
 
+### 2. Qué segura aplicación OpenMPI significa esto? (. p 235)
+R/ La aplicación más segura, explicada en la lectura es en la que, mientras uno envía el otro recibe, y viceversa. Todo radica en el orden de la recepción y envío de los mensajes.
+
+
+MPI_Comm_rank (comm, &my_rank);
+
+if (my_rank == 0) {
+
+	MPI_Send (sendbuf1, count, MPI_INT, 1, tag, comm);
+	
+	MPI_Recv (recvbuf1, count, MPI_INT, 1, tag, comm, &status);
+	
+}
+
+else if (my_rank == 1) {
+
+	MPI_Recv (recvbuf2, count, MPI_INT, 0, tag, comm, &status);
+	
+ 	MPI_Send (sendbuf2, count, MPI_INT, 1, tag, comm);
+ 	
+}
 
