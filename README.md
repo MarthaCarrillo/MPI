@@ -80,3 +80,5 @@ else if (my_rank == 1) {
  	
 }
 
+### 3. ¿Qué beneficios trae la función MPI_Sendrecv ()? (. p 237)
+R/ La función MPI_Sendrecv() tiene como beneficios para el programador, el no tener que preocuparse por el orden de las operaciones de envío y recepción. El sistema de ejecución de MPI garantiza que se está libre de deadlock, incluso para el caso en el que no se utiliza buffers internos del sistema.
