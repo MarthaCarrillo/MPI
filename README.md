@@ -72,7 +72,7 @@ R/ La función MPI_Sendrecv() tiene como beneficios para el programador, el no t
 	}
 	else if (my_rank == 1) { 
 		MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
-		MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+		MPI_Send (sendbuf, count, MPI_INT, 0, tag, comm);
  	}
 ####Archivo: mpideadlock1a.c
 	
@@ -83,7 +83,7 @@ R/ La función MPI_Sendrecv() tiene como beneficios para el programador, el no t
 		MPI_Recv (recvbuf, count, MPI_INT, 1, tag, comm, &status);
 	}
 	else if (my_rank == 1) { 
-		MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+		MPI_Send (sendbuf, count, MPI_INT, 0, tag, comm);
 		MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
 	}
 ####Archivo: mpideadlock1b.c
