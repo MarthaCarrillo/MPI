@@ -59,6 +59,7 @@ R/ La aplicación más segura, explicada en la lectura es en la que, mientras un
 R/ La función MPI_Sendrecv() tiene como beneficios para el programador, el no tener que preocuparse por el orden de las operaciones de envío y recepción. El sistema de ejecución de MPI garantiza que se está libre de deadlock, incluso para el caso en el que no se utiliza buffers internos del sistema.
 
 ### 4. Escriba un programa para validar el beneficio proporcionado por la función MPI_Sendrecv()?
+####Archivo: mpideadlock2a.c
 
 ##Actividad 3 - Ejercicios Deadlocks
 #####Escribir programas en MPI que validen la aparición de un deadlock de acuerdo a los segmentos de código en las diapositiva 41, 42.
@@ -93,9 +94,10 @@ R/ La función MPI_Sendrecv() tiene como beneficios para el programador, el no t
 ##Actividad 4 - Ejercicio propuesto comunicación colectiva
 
 ####Modifique el código del archivo mpiExample4.c de modo que
-#####Se reciba la suma total en el nodo cero 
-#####Se reciba el producto de multiplicar todas las sumas parciales en el nodo de mayor rango de el comunicador MPI_COMM_WORLD
+######Se reciba la suma total en el nodo cero 
+######Se reciba el producto de multiplicar todas las sumas parciales en el nodo de mayor rango de el comunicador MPI_COMM_WORLD
 ####Archivo: mpicolectiva1.c
 
-####Modifique el código del archivo mpiExample7.c de modo que se envie a todos los nodos en el comunicador MPI_COMM_WORLD la #####suma calculada en el nodo raiz de este comunicador
+####Modifique el código del archivo mpiExample7.c de modo que se envie a todos los nodos en el comunicador MPI_COMM_WORLD 
+######la suma calculada en el nodo raiz de este comunicador
 ####Archivo: mpicolectiva2.c
