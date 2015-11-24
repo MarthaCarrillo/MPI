@@ -25,7 +25,7 @@ Ejecución de la página 234:
 	}
 	else if (my_rank == 1) { 
 		MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
-		MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+		MPI_Send (sendbuf, count, MPI_INT, 0, tag, comm);
  	}
 
 
@@ -39,7 +39,7 @@ R/ La ejecución anterior no causa un cuando recvbuf y sendbuf son diferentes en
 	}
 	else if (my_rank == 1) {
 		MPI_Recv (recvbuf2, count, MPI_INT, 0, tag, comm, &status);
-		MPI_Send (sendbuf2, count, MPI_INT, 1, tag, comm);
+		MPI_Send (sendbuf2, count, MPI_INT, 0, tag, comm);
 	}
 
 ### 2. Qué segura aplicación OpenMPI significa esto? (p. 235)
@@ -47,12 +47,12 @@ R/ La aplicación más segura, explicada en la lectura es en la que, mientras un
 
 	MPI_Comm_rank (comm, &my_rank);
 	if (my_rank == 0) {
-		MPI_Send (sendbuf1, count, MPI_INT, 1, tag, comm);
-		MPI_Recv (recvbuf1, count, MPI_INT, 1, tag, comm, &status);
+		MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+		MPI_Recv (recvbuf, count, MPI_INT, 1, tag, comm, &status);
 	}
 	else if (my_rank == 1) {
-		MPI_Recv (recvbuf2, count, MPI_INT, 0, tag, comm, &status);
-		MPI_Send (sendbuf2, count, MPI_INT, 1, tag, comm);
+		MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
+		MPI_Send (sendbuf, count, MPI_INT, 0, tag, comm);
  	}
 
 ### 3. ¿Qué beneficios trae la función MPI_Sendrecv ()? (p. 237)
