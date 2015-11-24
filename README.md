@@ -86,6 +86,44 @@ R/ La función MPI_Sendrecv() tiene como beneficios para el programador, el no t
 ### 4. Escriba un programa para validar el beneficio proporcionado por la función MPI_Sendrecv()?
 
 ##Actividad 3 - Ejercicios Deadlocks
+Escribir programas en MPI que validen la aparición de un deadlock de acuerdo a los segmentos de código en las diapositiva 41, 42.
+
+####Segmento de código diapositiva 41
+MPI_Comm_rank (comm, &my_rank);
+
+if (my_rank == 0) {
+
+	MPI_Recv (recvbuf, count, MPI_INT, 1, tag, comm, &status);
+	
+	MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+	
+}
+
+else if (my_rank == 1) { 
+
+	MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
+	
+ 	MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+ 	
+}
+####Segmento de código diapositiva 42
+MPI_Comm_rank (comm, &my_rank);
+
+if (my_rank == 0) {
+
+	MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+
+	MPI_Recv (recvbuf, count, MPI_INT, 1, tag, comm, &status);
+	
+}
+
+else if (my_rank == 1) { 
+
+	MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+
+	MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
+	
+}
 
 ##Actividad 4 - Ejercicio propuesto comunicación colectiva
 
