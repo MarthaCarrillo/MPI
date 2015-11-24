@@ -10,3 +10,33 @@ https://docs.google.com/a/correounivalle.edu.co/document/d/1R5DccCSAEHOsIRVusPOf
 Este programa es capaz de correr en un cluster computacional y ejecuta las instrucciones de paso de mensajes uno a uno. Se envía un mensaje que contiene un único carácter, el cual es recibido, pasado a mayúsculas y enviado de vuelta.
 ####Código:
 https://github.com/MarthaCarrillo/MPI/blob/master/mpi1a1.c
+
+##Actividad 2 - Preguntas Deadlocks
+En esta sección se contestarán preguntas relacionadas con la lectura MPIDeadlocks
+####Lectura:
+https://drive.google.com/a/correounivalle.edu.co/file/d/0B7n65I8SStKXMHU5NHA3VWJzN0k/view
+
+Ejecución de la página 234:
+
+MPI_Comm_rank (comm, &my_rank);
+if (my_rank == 0) {
+	MPI_Recv (recvbuf, count, MPI_INT, 1, tag, comm, &status);
+	MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+}
+else if (my_rank == 1) {
+	MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
+ MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
+}
+
+### 1. Cuando la ejecución anterior no causa un deadlock? ( p 235)
+R/ La ejecución anterior no causa un cuando recvbuf y sendbuf son diferentes en los dos procesos.
+MPI_Comm_rank (comm, &my_rank);
+if (my_rank == 0) {
+	MPI_Recv (recvbuf1, count, MPI_INT, 1, tag, comm, &status);
+	MPI_Send (sendbuf1, count, MPI_INT, 1, tag, comm);
+}
+else if (my_rank == 1) {
+	MPI_Recv (recvbuf2, count, MPI_INT, 0, tag, comm, &status);
+ MPI_Send (sendbuf2, count, MPI_INT, 1, tag, comm);
+}
+
