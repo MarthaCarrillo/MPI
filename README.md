@@ -73,6 +73,7 @@ R/ La función MPI_Sendrecv() tiene como beneficios para el programador, el no t
 		MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
 		MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
  	}
+####Archivo: mpideadlock1a.c
 	
 ####Segmento de código diapositiva 42
 	MPI_Comm_rank (comm, &my_rank);
@@ -84,8 +85,10 @@ R/ La función MPI_Sendrecv() tiene como beneficios para el programador, el no t
 		MPI_Send (sendbuf, count, MPI_INT, 1, tag, comm);
 		MPI_Recv (recvbuf, count, MPI_INT, 0, tag, comm, &status);
 	}
+####Archivo: mpideadlock1b.c
 
 #####Modifique el segmento de código de la diapositiva 42 de modo que se utilice la función MPI_Sendrecv(). Validar que el programa no cae en un deadlock
+####Archivo: mpideadlock2a.c
 
 ##Actividad 4 - Ejercicio propuesto comunicación colectiva
 
