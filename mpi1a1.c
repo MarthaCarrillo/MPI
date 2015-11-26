@@ -16,12 +16,12 @@ int main(int argc,char *argv[]){
 	  source = 1;
 	  MPI_Send(&outmsg, 1, MPI_CHAR, dest, tag, MPI_COMM_WORLD);
 	  MPI_Recv(&inmsg, 1, MPI_CHAR, source, tag, MPI_COMM_WORLD, &Stat);
-	  printf("\nHello MPI Message received: %c, from process %d!", outmsg, rank);
+	  printf("\nHello MPI Message received: %c, from process %d!", inmsg, rank);
 	}else if (rank == 1) {
 	  dest = 0;
 	  source = 0;
 	  MPI_Recv(&inmsg, 1, MPI_CHAR, source, tag, MPI_COMM_WORLD, &Stat);
-	  printf("\nHello MPI Message received: %c, from process %d!", outmsg, rank);
+	  printf("\nHello MPI Message received: %c, from process %d!", inmsg, rank);
 	  outmsg = toupper(inmsg);
 	  MPI_Send(&outmsg, 1, MPI_CHAR, dest, tag, MPI_COMM_WORLD);
 	 }
