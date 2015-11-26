@@ -16,18 +16,18 @@ int main(int argc,char *argv[]){
 	  source = 1;
 	  MPI_Send(&outmsg, 1, MPI_CHAR, dest, tag, MPI_COMM_WORLD);
 	  MPI_Recv(&inmsg, 1, MPI_CHAR, source, tag, MPI_COMM_WORLD, &Stat);
-	  printf("\nHello MPI Message received: %c, from process %d!", inmsg, rank);
+	  printf("\nHello MPI Message received from process %d: %c, process %d!", source, inmsg, rank);
 	}else if (rank == 1) {
 	  dest = 0;
 	  source = 0;
 	  MPI_Recv(&inmsg, 1, MPI_CHAR, source, tag, MPI_COMM_WORLD, &Stat);
-	  printf("\nHello MPI Message received: %c, from process %d!", inmsg, rank);
+	  printf("\nHello MPI Message received from process %d: %c, process %d!", source, inmsg, rank);
 	  outmsg = toupper(inmsg);
 	  MPI_Send(&outmsg, 1, MPI_CHAR, dest, tag, MPI_COMM_WORLD);
 	 }
 
 	MPI_Get_count(&Stat, MPI_CHAR, &count);
-	printf("Task %d: Received %d char(s) from task %d with tag %d \n",
+	printf("\nTask %d: Received %d char(s) from task %d with tag %d \n",
 		   rank, count, Stat.MPI_SOURCE, Stat.MPI_TAG);
 
 	MPI_Finalize();
