@@ -22,7 +22,7 @@ int main(int argc, char *argv[]){
     // insert your code here
     MPI_Bcast(buffer, count, MPI_INT, root, MPI_COMM_WORLD);
    
-    printf("Rank is: %d, Value at buffer[%d] is: %d\n, the sum is: %d ",rank, count-1, buffer[count-1],sumTotal);
+    printf("Rank is: %d, Value at buffer[%d] is: %d\n ",rank, count-1, buffer[count-1]);
     
     
     printf("\n");
