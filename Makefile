@@ -29,9 +29,9 @@ exd1b: d1b
 d1b:
         mpicc mpideadlock1b.c -o /shared/d1b
 exd2a: d2a
-        mpirun --mca btl_tcp_if_exclude lo,eth0 -np 2 --hostfile machinefile /shared/d2b
+        mpirun --mca btl_tcp_if_exclude lo,eth0 -np 2 --hostfile machinefile /shared/d2a
 d2a:
-        mpicc mpideadlock2b.c -o /shared/d2b
+        mpicc mpideadlock2a.c -o /shared/d2a
 exc1: colectiva1
         mpirun --mca btl_tcp_if_exclude lo,eth0 -np 2 --hostfile machinefile /shared/colectiva1
 colectiva1:
