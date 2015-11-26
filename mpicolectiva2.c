@@ -5,7 +5,6 @@ int main(int argc, char *argv[]){
     int i,rank,size;
     int root,count;
     int buffer[5];
-    int sumTotal =0;
     MPI_Status status;
     MPI_Request request;
 
@@ -21,10 +20,8 @@ int main(int argc, char *argv[]){
     }
 
     // insert your code here
-   if(rank==root){
-      MPI_Reduce(&buffer,&sumTotal, count, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
-   }
-
+    MPI_Bcast(buffer, count, MPI_INT, root, MPI_COMM_WORLD);
+   
     printf("Rank is: %d, Value at buffer[%d] is: %d\n, the sum is: %d ",rank, count-1, buffer[count-1],sumTotal);
     
     
