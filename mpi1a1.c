@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "mpi.h"
-#include <ctype.c>
+#include <ctype.h>
 
 int main(int argc,char *argv[]){
 	int size, rank, dest, source, count, tag=1;
